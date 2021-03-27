@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hans">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -24,7 +24,7 @@
 <meta property="og:title" content="Welcome">
 <meta property="og:url" content="http://example.com/index.html">
 <meta property="og:site_name" content="Welcome">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale">
 <meta property="article:author" content="lonie">
 <meta name="twitter:card" content="summary">
 
@@ -37,7 +37,7 @@
     sidebar: "",
     isHome : true,
     isPost : false,
-    lang   : 'en'
+    lang   : 'zh-Hans'
   };
 </script>
 
@@ -81,7 +81,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
+    <div class="toggle" aria-label="切换导航栏">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -110,12 +110,37 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+    <a href="/" rel="section"><i class="home  //首页 fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user  //关于 fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags  //标签 fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th   //分类 fa-fw"></i>分类</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+    <a href="/archives/" rel="section"><i class="archive //归档 fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="calendar   //日程表 fa-fw"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="sitemap   //站点地图 fa-fw"></i>站点地图</a>
 
   </li>
   </ul>
@@ -144,11 +169,11 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/04/how-to-use-hexo-md/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/27/Stateful-Stream-Processing/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
       <meta itemprop="name" content="lonie">
       <meta itemprop="description" content="">
     </span>
@@ -159,7 +184,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/03/04/how-to-use-hexo-md/" class="post-title-link" itemprop="url">how_to_use_hexo.md</a>
+            <a href="/2021/03/27/Stateful-Stream-Processing/" class="post-title-link" itemprop="url">有状态的流处理</a>
         </h2>
 
         <div class="post-meta">
@@ -167,9 +192,19 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="Created: 2021-03-04 19:58:13" itemprop="dateCreated datePublished" datetime="2021-03-04T19:58:13+08:00">2021-03-04</time>
+              <time title="创建时间：2021-03-27 11:29:47 / 修改时间：11:53:41" itemprop="dateCreated datePublished" datetime="2021-03-27T11:29:47+08:00">2021-03-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Flink/" itemprop="url" rel="index"><span itemprop="name">Flink</span></a>
+                </span>
             </span>
 
           
@@ -183,7 +218,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <h3 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a><a target="_blank" rel="noopener" href="https://ci.apache.org/projects/flink/flink-docs-release-1.12/concepts/stateful-stream-processing.html">原文链接</a></h3><h3 id="什么是状态"><a href="#什么是状态" class="headerlink" title="什么是状态"></a>什么是状态</h3><p>当在一个数据流中，很多算子看起来都是每次只独立处理一个事件的时候（比如event parser），有一些算子能够通过其他事件记住一些信息（比如窗口操作相关的算子）<br>，这些算子就是<strong>有状态的</strong><br>下面是一些例子</p>
+<ul>
+<li>当一个应用检索确定的事件模式时，Flink状态会把所有已发生的事件存储到一个队列中</li>
+<li>当按 天/时/分聚合事件时，Flink的状态会保存那些等待聚合的事件</li>
+<li>当使用流式数据训练机器学习模型时，Flink状态会存储当前模型版本的参数</li>
+<li>当需要管理历史数据的时候，Flink状态能提供高效的历史的数据访问</li>
+</ul>
+<p>Flink 需要感知状态，这样才能使用CheckPoint 和SavePoint 进行容错处理</p>
+
       
     </div>
 
@@ -201,11 +244,11 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/03/flink01-env-build/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/04/how-to-use-hexo-md/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
       <meta itemprop="name" content="lonie">
       <meta itemprop="description" content="">
     </span>
@@ -216,7 +259,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/03/03/flink01-env-build/" class="post-title-link" itemprop="url">Untitled</a>
+            <a href="/2021/03/04/how-to-use-hexo-md/" class="post-title-link" itemprop="url">hexo 简单使用</a>
         </h2>
 
         <div class="post-meta">
@@ -224,16 +267,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">发表于</span>
 
-              <time title="Created: 2021-03-03 17:16:09" itemprop="dateCreated datePublished" datetime="2021-03-03T17:16:09+08:00">2021-03-03</time>
+              <time title="创建时间：2021-03-04 19:58:13" itemprop="dateCreated datePublished" datetime="2021-03-04T19:58:13+08:00">2021-03-04</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-04 18:27:49" itemprop="dateModified" datetime="2021-03-04T18:27:49+08:00">2021-03-04</time>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-27 11:32:48" itemprop="dateModified" datetime="2021-03-27T11:32:48+08:00">2021-03-27</time>
               </span>
 
           
@@ -247,7 +290,71 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Flink-环境搭建"><a href="#Flink-环境搭建" class="headerlink" title="Flink 环境搭建"></a>Flink 环境搭建</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>运行Flink需要环境，为了快速开始编码学习，我们直接使用Flink本地部署+IDE搭建开发环境</p>
+          <h3 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo g: 重新生成</span><br><span class="line">hexo clean: 清理信息</span><br><span class="line">hexo d: 部署到git，千万不要用push</span><br><span class="line">hexo new xxx:创建一篇新的文章</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/04/flink01-env-build/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="lonie">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/04/flink01-env-build/" class="post-title-link" itemprop="url">Flink 环境搭建</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-04 12:11:25" itemprop="dateCreated datePublished" datetime="2021-03-04T12:11:25+08:00">2021-03-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-27 11:32:55" itemprop="dateModified" datetime="2021-03-27T11:32:55+08:00">2021-03-27</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>运行Flink需要环境，为了快速开始编码学习，我们直接使用Flink本地部署+IDE搭建开发环境</p>
 <ol>
 <li>搭建Flink环境</li>
 <li>开发&amp;运行Flink程序</li>
@@ -295,11 +402,11 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/05/text/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
       <meta itemprop="name" content="lonie">
       <meta itemprop="description" content="">
     </span>
@@ -318,9 +425,9 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">发表于</span>
 
-              <time title="Created: 2021-02-05 16:33:03" itemprop="dateCreated datePublished" datetime="2021-02-05T16:33:03+08:00">2021-02-05</time>
+              <time title="创建时间：2021-02-05 16:33:03" itemprop="dateCreated datePublished" datetime="2021-02-05T16:33:03+08:00">2021-02-05</time>
             </span>
 
           
@@ -393,10 +500,10 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          Table of Contents
+          文章目录
         </li>
         <li class="sidebar-nav-overview">
-          Overview
+          站点概览
         </li>
       </ul>
 
@@ -407,6 +514,8 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="lonie"
+      src="/images/avatar.jpg">
   <p class="site-author-name" itemprop="name">lonie</p>
   <div class="site-description" itemprop="description"></div>
 </div>
@@ -415,12 +524,26 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
-          <span class="site-state-item-name">posts</span>
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/loniecc" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;loniecc" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:huzeming2019@outlook.com" title="E-Mail → mailto:huzeming2019@outlook.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
 
 
 
@@ -449,7 +572,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">lonie</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
 
         
